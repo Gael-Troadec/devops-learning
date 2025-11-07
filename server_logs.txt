@@ -1,0 +1,10 @@
+2025-11-06 10:15:23 ERROR [auth] Failed login from 192.168.1.100
+2025-11-06 10:16:01 INFO [request] GET /api/users 200 2.5s
+2025-11-06 10:16:45 ERROR [db] Connection timeout from 192.168.1.50
+2025-11-06 10:17:12 INFO [request] POST /api/data 201 1.2s
+2025-11-06 10:18:33 ERROR [memory] Critical memory usage 95%
+2025-11-06 10:19:01 WARNING [disk] Disk usage 85%
+2025-11-06 10:20:15 ERROR [auth] Failed login from 192.168.1.101
+2025-11-06 10:21:22 INFO [request] GET /api/status 200 0.8s
+2025-11-06 10:22:30 ERROR [security] Suspicious activity detected
+2025-11-06 10:23:45 WARNING [network] High latency detected
