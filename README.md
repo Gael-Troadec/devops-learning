@@ -1,34 +1,27 @@
-# Rover-Failsafe (Learning Project)
+# DevOps Learning Journey
 
-**Status:** Educational / Experimental  
-**Purpose:** Learning Bash scripting, system design, failsafe mechanisms  
-**Date:** November 2025  
+**Objectif** : DevOps Junior en 18 mois (reconversion ex-militaire, operateur nucleaire)
 
-## Overview
-A conceptual failsafe system for an autonomous rover with health monitoring and graceful degradation.
+## Contenu actuel (Jour 5)
 
-**Note:** This is a learning project created while transitioning to DevOps. 
-The architecture and concepts are valid, but this is not production-ready code.
+- `list_files_sorted.py` - Lister et trier les fichiers par taille
+- `backup.py` - Script de sauvegarde automatique
+- `sysinfo_disk.py` - Info système et espace disque
+- `data_analyzer.py` - Analyser données CSV avec Python + Linux
+- `log_analyzer.py` - Parser et analyser logs serveur
+- `analyze_employees.sh` - Bash script pour analyse données
 
-## What I learned
-- Bash scripting (process management, signal handling)
-- JSON logging for system events
-- Health check patterns
-- Graceful shutdown and recovery
+## Roadmap
 
-## Architecture
-- `earth_server.sh` - Main server with failsafe logic
-- Health monitoring every 30 seconds
-- Graceful shutdown after 3 consecutive failures
-- JSON structured logging
+- Mois 1-2 : Linux/Python basics (EN COURS)
+- Mois 3-4 : Docker/Réseau
+- Mois 7-9 : Certif AWS
+- Mois 18 : Job DevOps Junior
 
-## How to run
-```bash
-bash earth_server.sh
-```
+## Tech Stack
 
-## Next Steps
-- Add proper error handling
-- Implement Docker containerization
-- Add comprehensive testing
-- Create monitoring dashboard
+Python | Linux | Bash | Git | GitHub
+
+---
+
+**Status** : Portfolio public ✅
