@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-11-09T17:35:39.755189",
+  "alert_level": "OK",
+  "totale_errors": 5,
+  "error_breakdown": {
+    "auth": 2,
+    "db": 1,
+    "memory": 1,
+    "security": 1
+  }
+}
