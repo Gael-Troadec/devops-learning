@@ -1,0 +1,5 @@
+user1:admin:1001
+user2:developer:1002
+user3:admin:1003
+user4:guest:1004
+user5:developer:1005
