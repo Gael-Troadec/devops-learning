@@ -2,7 +2,7 @@
 
 **Objectif** : DevOps Junior en 18 mois (reconversion ex-militaire, operateur nucleaire)
 
-## Contenu actuel (Jour 5)
+## Contenu actuel (Jour 6)
 
 - `list_files_sorted.py` - Lister et trier les fichiers par taille
 - `backup.py` - Script de sauvegarde automatique
@@ -10,6 +10,7 @@
 - `data_analyzer.py` - Analyser données CSV avec Python + Linux
 - `log_analyzer.py` - Parser et analyser logs serveur
 - `analyze_employees.sh` - Bash script pour analyse données
+- `system_monitor.py` - Real-time monitoring (CPU/memory/disk/battery), cross-platform, JSON output, alert levels
 
 ## Roadmap
 
