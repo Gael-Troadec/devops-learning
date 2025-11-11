@@ -1,40 +1,68 @@
 import subprocess
-import sys 
+import sys
+import logging
+import os
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('log_analyzer.log'),
+        logging.StreamHandler()
+    ]
+)
+
+logger = logging.getLogger(__name__)
 
 def analyze_logs(logfile):
-    print(f"=== LOG ANALYSIS: {logfile} ===\n")
+    try:
+        logger.info(f"Starting log analysis on file: {logfile}")
 
-    # Compte les erreurs
-    result = subprocess.run(['grep', 'ERROR', logfile], capture_output=True, text=True)
-    errors = result.stdout.strip().split('\n') if result.stdout else []
-    error_count = len([e for e in errors if e])
-    print(f"Total ERRORs: {error_count}")
+        # Verifier que le fichier existe
+        if not os.path.exists(logfile):
+            logger.error(f"Log file does not exist: {logfile}")
+            sys.exit(1)
 
-    # Compte les warnings
-    result = subprocess.run(['grep', 'WARNING', logfile], capture_output=True, text=True)
-    warnings = result.stdout.strip().split('\n') if result.stdout else []
-    warning_count = len([w for w in warnings if w])
-    print(f"Total WARNINGs: {warning_count}\n")
+        logger.info(f"log file found, starting analysis")
+        print(f"=== LOG ANALYSIS: {logfile} ===\n")
 
-    # Liste les IPs qui ont echoue
-    print("Failed login IPs:")
-    result = subprocess.run(['grep', 'Failed login', logfile], capture_output=True, text=True)
-    for line in result.stdout.strip().split('\n'):
-        if line :
-            ip = line.split()[-1]
-            print(f" - {ip}")
+        # Compte les erreurs
+        result = subprocess.run(['grep', 'ERROR', logfile], capture_output=True, text=True)
+        errors = result.stdout.strip().split('\n') if result.stdout else []
+        error_count = len([e for e in errors if e])
+        print(f"Total ERRORs: {error_count}")
 
-    print("\nError types:")
-    result = subprocess.run(['grep', 'ERROR', logfile], capture_output=True, text=True)
-    for line in result.stdout.strip().split('\n'):
-        if line:
-            error_type = line.split('[')[1].split(']')[0]
-            print(f" - {error_type}")
+        # Compte les warnings
+        result = subprocess.run(['grep', 'WARNING', logfile], capture_output=True, text=True)
+        warnings = result.stdout.strip().split('\n') if result.stdout else []
+        warning_count = len([w for w in warnings if w])
+        print(f"Total WARNINGs: {warning_count}\n")
 
-    error_breakdown = count_errors_by_type(logfile)
-    print("\nError breakdown:")
-    for error_type, count in error_breakdown.items():
-        print(f"  - {error_type}: {count}")
+        # Liste les IPs qui ont echoue
+        print("Failed login IPs:")
+        result = subprocess.run(['grep', 'Failed login', logfile], capture_output=True, text=True)
+        for line in result.stdout.strip().split('\n'):
+            if line :
+                ip = line.split()[-1]
+                print(f" - {ip}")
+
+        print("\nError types:")
+        result = subprocess.run(['grep', 'ERROR', logfile], capture_output=True, text=True)
+        for line in result.stdout.strip().split('\n'):
+            if line:
+                error_type = line.split('[')[1].split(']')[0]
+                print(f" - {error_type}")
+
+        error_breakdown = count_errors_by_type(logfile)
+        print("\nError breakdown:")
+        for error_type, count in error_breakdown.items():
+            print(f"  - {error_type}: {count}")
+
+        logger.info(f"log analysis completed successfully")
+
+    except Exception as e:
+        logger.error(f"Error during log analysis: {e}")
+        sys.exit(1)
 
 def count_errors_by_type(logfile):
     result = subprocess.run(['grep', 'ERROR', logfile], capture_output=True, text=True)
