@@ -2,7 +2,7 @@
 
 **Objectif** : DevOps Junior en 18 mois (reconversion ex-militaire, operateur nucleaire)
 
-## Contenu actuel (Jour 6)
+## Contenu actuel (Jour 7)
 
 - `list_files_sorted.py` - Lister et trier les fichiers par taille
 - `backup.py` - Script de sauvegarde automatique
@@ -10,7 +10,9 @@
 - `data_analyzer.py` - Analyser données CSV avec Python + Linux
 - `log_analyzer.py` - Parser et analyser logs serveur
 - `analyze_employees.sh` - Bash script pour analyse données
-- `system_monitor.py` - Real-time monitoring (CPU/memory/disk/battery), cross-platform, JSON output, alert levels
+- `system_monitor.py` - Real-time monitoring (CPU/memory/disk/battery), cross-platform, JSON output, alert levels, error handling and logging
+- `log_analyzer.py` - Parse server logs, extract errors by type, count patterns, generate JSON report, with error handling and logging
+- `data_analyzer.py` - Analyze CSV data (count admins, extract admin salaries, find employees above salary threshold), with error handling and logging
 
 ## Roadmap
 
