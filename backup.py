@@ -5,8 +5,21 @@
 import os        #Gestion fichiers/dossiers
 import shutil    #Copie de dossiers entiers
 import datetime  #Gestion dates/heures
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s -  %(message)s',
+    handlers=[
+        logging.FileHandler('backup.log'),
+        logging.StreamHandler()
+    ]
+)
+
+logger = logging.getLogger(__name__)
 
 # Affichage du titre
+logger.info("Starting backup script")
 print("=" * 60)
 print("          BACKUP AUTOMATIQUE")
 print("=" * 60)
@@ -17,12 +30,12 @@ destination = input(" Dossier de destination des backups : ")
 
 # Verifie que le dossier source existe
 if not os.path.exists(source):
-    print(f"\n Erreur : '{source}' n'existe pas")
+    logger.error(f"Source directory does not exist: {source}")
     exit(1) # Arrete le script avec code erreur 1
 
 # Verifie que la source est bien un dossier (pas un fichier)
 if not os.path.exists(source):
-    print(f"\n Erreur : '{source}' n'est pas un dossier")
+    logger.error(f"\n Error : '{source}' is not a folder")
     exit(1)
 
 # Cree le dossier de destination s'il n'existe pas
@@ -36,6 +49,7 @@ nom_backup = f"backup_{timestamp}"
 chemin_backup = os.path.join(destination, nom_backup)
 
 # Affiche les infos avant de commencer
+logger.info("Backup path creation")
 print(f"\n Creation du backup...")
 print(f"  Source : {os.path.abspath(source)}")
 print(f"  Destination : {chemin_backup}")
@@ -43,6 +57,7 @@ print(f"  Destination : {chemin_backup}")
 # Bloc try/except pour gerer les erreurs possibles
 try:
     # Copie recursive du dossier source vers destination
+    logger.info("Copy of all folders")
     shutil.copytree(source, chemin_backup)
 
     # Calcul de la taille totale du backup
@@ -61,12 +76,14 @@ try:
     taille_mo = taille_totale / 1024 / 1024
 
     # Affichage du succes avec infos
+    logger.info("Backup created successfully")
     print(f"\n Backup cree avec succes !")
     print(f"Taille : {taille_mo:.2f} Mo")
     print(f"Emplacement : {chemin_backup}")
 
 # Si une erreur se produit pendant la copie
 except Exception as e:
+    logger.error("Error during backup creation: {e}")
     print(f"\n Erreur lors de la creation du backup :")
     print(f"  {e}")
     exit(1)
