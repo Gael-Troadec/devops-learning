@@ -1,22 +1,44 @@
 #!/bin/bash
 
-FILE="${1:-employees.csv}"
+LOG_FILE="analyze_employees.log"
+
+log_info() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') -INFO - $1" | tee -a "$LOG_FILE"
+}
+
+log_error() {
+echo "$(date '+%Y-%m-%d %H:%M:%S') -ERROR - $1" | tee -a "$LOG_FILE"
+}
+
+log_info "Starting analyze_employees script"
+
+CSV_FILE="${1:-employees.csv}"
 MIN_SALARY="${2:-6000}"
+
+if [ ! -f "$CSV_FILE" ]; then
+    log_error "CSV file does not exist: $CSV_FILE"
+    exit 1
+fi
+
+log_info "File found: $CSV_FILE, starting analysis"s
 
 echo "=== EMPLOYEE DATA ANALYSIS ==="
 echo ""
 
-echo "Total employees:"
-wc -l < $FILE
+log_info "Counting total employees"
+TOTAL_EMPLOYEES=$(wc -l < "$CSV_FILE")
+echo "Total employees: $TOTAL_EMPLOYEES"
 
-echo ""
-echo "Admins:"
-grep "admin" $FILE | wc -l
+log_info "Counting admins"
+ADMIN_COUNT=$(grep "admin" "$CSV_FILE" | wc -l)
+echo "Admins: $ADMIN_COUNT"
 
-echo ""
-echo "Average admin salary:"
-awk -F: '/admin/ {sum+=$3; count++} END {print sum/count}' $FILE
+log_info "Calculating average admin salary"
+AVG_SALARY=$(awk -F, '/admin/ {sum+=$3; count++} END {if (count > 0) print sum/count; else print0}' "$CSV_FILE")
+echo "Average admin salary: $AVG_SALARY"
 
-echo ""
-echo "Employees earning > $MIN_SALARY:"
-awk -F: -v min=$MIN_SALARY '$3 > min {print $1, $3}' $FILE
+log_info "Finding employees earning above $MIN_SALARY"
+EMPLOYEES_ABOVE=$(awk -F, -v min=$MIN_SALARY '$3 > min {count++} END {print count}' "$CSV_FILE")
+echo "Employees earning > $MIN_SALARY: $EMPLOYEES_ABOVE"
+
+log_info "Analysis completed successfully"
