@@ -1,9 +1,0 @@
-2025-11-11 07:46:24,258 - __main__ - INFO - Starting system monitoring
-2025-11-11 07:51:16,132 - __main__ - INFO - Starting system monitoring
-2025-11-11 07:51:17,136 - __main__ - INFO - System monitoring completed successfully
-2025-11-11 07:52:26,015 - __main__ - INFO - Starting system monitoring
-2025-11-11 07:52:27,016 - __main__ - INFO - System monitoring completed successfully
-2025-11-11 07:54:11,302 - __main__ - INFO - Starting system monitoring
-2025-11-11 07:54:12,307 - __main__ - ERROR - Error during system monitoring: [Errno 2] No such file or directory: '/noneexistent_path'
-2025-11-11 07:55:12,816 - __main__ - INFO - Starting system monitoring
-2025-11-11 07:55:13,816 - __main__ - INFO - System monitoring completed successfully
