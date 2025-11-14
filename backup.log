@@ -1,0 +1,6 @@
+2025-11-11 09:04:06,609 - __main__ - INFO -  Starting backup script
+2025-11-11 09:04:35,924 - __main__ - INFO -  Backup path creation
+2025-11-11 09:04:35,924 - __main__ - INFO -  Copy of all folders
+2025-11-11 09:04:35,924 - __main__ - INFO -  Backup created successfully
+2025-11-11 09:05:38,073 - __main__ - INFO -  Starting backup script
+2025-11-11 09:05:54,743 - __main__ - ERROR -  Source directory does not exist: noneexistent_folder

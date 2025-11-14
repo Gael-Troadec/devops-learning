@@ -1,0 +1,7 @@
+2025-11-11 08:17:33,891 - __main__ - INFO - Starting log analysis on file: test_server.log
+2025-11-11 08:17:33,891 - __main__ - ERROR - Error during log analysis: name 'os' is not defined
+2025-11-11 08:18:24,683 - __main__ - INFO - Starting log analysis on file: test_server.log
+2025-11-11 08:18:24,683 - __main__ - INFO - log file found, starting analysis
+2025-11-11 08:18:24,690 - __main__ - INFO - log analysis completed successfully
+2025-11-11 08:19:35,904 - __main__ - INFO - Starting log analysis on file: noneexistent.log
+2025-11-11 08:19:35,905 - __main__ - ERROR - Log file does not exist: noneexistent.log
