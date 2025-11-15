@@ -5,7 +5,7 @@
 ---
 
 ## Current Status
-**Jour 10** - Flask consolidation, Permissions avancées, Docker integration
+**Jour 11** - Permissions consolidation (2 min test solo), Bash validation scripts, Git branches workflow
 
 ---
 
@@ -135,12 +135,11 @@
 
 ---
 
-## Next Steps (Jour 11+)
-- [ ] Permissions test solo (refaire de mémoire)
-- [ ] GitHub Actions CI/CD pipeline
-- [ ] Raspberry Pi server setup (DevOps-only)
-- [ ] Monitoring stack (Prometheus/Grafana intro)
-- [ ] Specialization decision (DevOps/SRE/Admin)
+### Permissions & Linux (Jour 11) ✅ DONE
+- Permissions test solo (2 min, zero bugs)
+- Bash validation script pattern
+- Git branches + merge workflow
+- Commits vs Push clarification
 
 ---
 
