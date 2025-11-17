@@ -4,8 +4,8 @@
 
 ---
 
-## Current Status
-**Jour 11** - Permissions consolidation (2 min test solo), Bash validation scripts, Git branches workflow
+**Current Status**
+**Jour 13** - GitLeaks secrets scanning, GitHub Actions CI/CD pipeline, Permissions consolidation test solo (perfect score)
 
 ---
 
@@ -42,6 +42,16 @@
 - `logs/` (755) - Logs partagés, others read
 - `data/` (755) - Data, others read
 - `deploy.sh` (700) - Deployment script
+
+- ### Docker + DevSecOps Pipeline (Jour 12-13)
+`docker_advanced_day12/` - Production-ready Flask app with security automation:
+- Multi-stage Dockerfile (reduced image size 90%, non-root security)
+- Trivy vulnerability scanning (rejects CRITICAL/HIGH)
+- GitLeaks secrets detection (prevents credential leaks)
+- GitHub Actions CI/CD pipeline (Build → Scan → Deploy)
+- Dual image tagging (latest + immutable SHA)
+
+**Patterns mastered:** Supply chain security, defense-in-depth, automated rejection gates, immutable deployments
 
 **Concepts maîtrisés:**
 - umask (default permissions)
