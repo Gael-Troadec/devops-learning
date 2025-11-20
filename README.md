@@ -154,12 +154,11 @@
 ---
 
 ## Personal Context
-- Age: 39, ex-militaire (7 ans, opérateur nucléaire)
+- Age: 39, ex-Military, actually nuclear operator
 - Discipline: 20-25h/week learning, rotating schedule
-- Motivation: Scientific contribution (space/oceanography/defense), family security
+- Motivation: Scientific contribution (space/oceanography/defense)
 - Timeline: 18 months target, 24 months acceptable
-- Mindset: Direct, no-bullshit, detail-oriented
 
 ---
 
-**Status** : Portfolio public ✅ | En progression Jour 11/540
+⚠️ NOTE: This repository is an archived notebook for the learning phase. Active development is continuing on the dedicated project: [Project Architeuthis - K3s-Pi5-Lab](https://github.com/Gael-Troadec/K3s-Pi5-Lab).
